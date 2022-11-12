@@ -1,0 +1,26 @@
+html {
+  font-weight: $font-weight-normal;
+  color: $base-text-color;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container{
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
+
+
+
+
