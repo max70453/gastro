@@ -1,6 +1,7 @@
 html {
-  font-weight: $font-weight-normal;
+  font-family: $font-family-base, Avenir, Helvetica, Arial, sans-serif;
   color: $base-text-color;
+  background-color: $color-background-base;
 }
 
 ol, ul {
@@ -19,6 +20,7 @@ a {
   width: 100%;
   max-width: 1920px;
   margin: auto;
+  padding: 4%;
 }
 
 
