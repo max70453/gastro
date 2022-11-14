@@ -1,7 +1,6 @@
-<template>
-  <div class="container">
-    <router-view />
-  </div>
+<template lang="pug">
+.container
+  router-view
 </template>
 
 <script>
@@ -13,4 +12,5 @@ export default {
 
 <style lang="sass">
 @import './styles/index.scss'
+
 </style>
