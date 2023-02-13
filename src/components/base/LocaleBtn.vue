@@ -21,8 +21,7 @@ export default {
 </script>
     
 <style lang="sass" scoped>
-@import '../../styles/index.scss'    
-
+@import '../../styles/variables'  
 .locale-btn
   border: none
   display: flex
@@ -41,6 +40,7 @@ export default {
     background: $base-btn-color
     cursor: pointer
     color: $color-background-base
+    transition: background 0.3s ease-in-out
 
 </style>
     

@@ -12,12 +12,20 @@
             router-link(:to="link.path").header-nav__linkItem {{link.text}}
       .header-phone
         .header-phone__number {{ number }}
+    .locale
+      ul.locale__list
+        li(v-for="locale, index in localeBtn", :key="index").locale__item
+          LocaleBtn(:text="locale")    
 
 </template>
     
 <script>
+import { defineAsyncComponent } from 'vue'
 export default {
   name: 'HeaderComponent',
+  components: {
+    LocaleBtn: defineAsyncComponent(() => import('@/components/base/LocaleBtn.vue'))
+  },
   data() {
     return {
       navItems: [
@@ -29,20 +37,23 @@ export default {
       ],
       number: '+38 (068) 949 - 49 -19',
       title: 'healthy ration',
+      localeBtn: ['RU', 'UA', 'EN']
     }
   }
 }
 </script>
     
 <style lang="sass">
-@import '../styles/index.scss'
+@import '../styles/variables'
 
 .header
+  padding-top: 3.3%
+  margin-bottom: 35px
 
 .header-logo
   position: absolute
-  // left: 330px
-  top: -47px  
+  left: 330px
+  top: -55px  
   width: 264px
   height: 264px
   background: $color-background-base
@@ -111,6 +122,20 @@ export default {
 .header-phone__number
   color: $base-btn-color
   font-family: $font-family-bold
+
+.locale
+  display: flex
+  justify-content: start
+  width: 50%
+  margin: 0 auto
+
+.locale__list
+  padding: 0
+  display: flex
+  margin: 0 7.5px
+
+.locale__item
+  padding: 0 7.5px
 
 </style>
     

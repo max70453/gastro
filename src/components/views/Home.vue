@@ -1,11 +1,20 @@
 <template lang='pug'>
-Header
-.innerContainer
-  .locale
-    ul.locale__list
-      li(v-for="locale, index in localeBtn", :key="index").locale__item
-        LocaleBtn(:text="locale")
-
+.home
+  .container
+    Header
+    section.home-section
+      .home-section__aside
+        ul.home-section__menuBtnList
+          li(v-for="btnItem, index in menuBtnImage", :key="index").home-section__btnItem
+            MenuButton(:image="btnItem.src", :btnText="btnItem.text")
+      .home__slider
+        Slider
+    Benefits
+    .programs
+      .innerCntainer
+        Programs 
+  .main-screen-ellipse
+  .benefits-elipse
 </template>
 
 <script>
@@ -14,31 +23,67 @@ export default {
   name: 'HomePage',
   components:{
     Header: defineAsyncComponent(() => import('@/components/Header.vue')),
-    LocaleBtn: defineAsyncComponent(() => import('@/components/base/LocaleBtn.vue'))
+    Slider: defineAsyncComponent(() => import('@/components/MainSlider.vue')),
+    MenuButton: defineAsyncComponent(() => import('@/components/base/MenuBtn.vue')),
+    Benefits: defineAsyncComponent(() => import('@/components/Benefits.vue')),
+    Programs: defineAsyncComponent(() => import('@/components/Programs.vue')),
   },
   data() {
     return {
-      localeBtn: ['RU', 'UA', 'EN']
+      menuBtnImage: [
+        {src: 'ccal.png', text: 'Ccal'},
+        {src: 'fish.png', text: 'Fish'},
+        {src: 'carrot.png', text: 'Carrot'},
+        {src: 'bottle.png', text: 'Bottle'},
+        {src: 'meat.png', text: 'Meat'},
+        {src: 'table.png', text: 'Table'},
+      ]
     }
   }
 }
 </script>
 
 <style lang="sass">
-@import '../../styles/index.scss'
+@import '../../styles/variables'
 
-.locale
+.home
+  width: 100%
+  position: relative
+
+.main-screen-ellipse
+  width: 950px
+  height: 1065px
+  display: block
+  position: absolute
+  top: 0
+  right: 0
+  background: url("../../assets/background/Ellipse100.png") no-repeat 0 0
+  z-index: -10
+
+// .benefits-elipse 
+//   width: 544px
+//   height: 544px
+//   position: absolute
+//   display: block
+//   background: url("../../assets/background/Ellipse115.png") no-repeat
+
+.home-section__aside
   display: flex
-  justify-content: start
-  width: 50%
-  margin: 0 auto
+  flex-direction: column
 
-.locale__list
-  padding: 0
+.home-section__menuBtnList
+
+.home-section__btnItem
+
+.home-section
+  width: 100%
   display: flex
-  margin: 0 7.5px
+  justify-content: space-between
+  margin-bottom: 8%
 
-.locale__item
-  padding: 0 7.5px
-
+.home__slider
+  width: 100%
+  min-width: 0
+  max-width: 1515px 
+  
 </style>

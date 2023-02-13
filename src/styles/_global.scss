@@ -4,12 +4,21 @@ html {
   background-color: $color-background-base;
 }
 
+button{
+  border: 0
+}
+
 ol, ul {
   list-style: none;
 }
 
 a {
   text-decoration: none;
+}
+
+p, ul, li {
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -20,15 +29,16 @@ a {
   width: 100%;
   max-width: 1920px;
   margin: auto;
-  padding: 3%;
+  padding: 0 3%;
 }
 
 .innerContainer
 {
   width: 100%;
   margin: 0 auto;
-  max-width: 1230px;
+  max-width: 1180px;
 }
+
 
 
 

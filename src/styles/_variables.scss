@@ -4,9 +4,9 @@ $font-family-bold: 'Montserrat-Bold', sans-serif;
 $font-family-light: 'Montserrat-Light', sans-serif;
 $font-family-medium: 'Montserrat-Medium', sans-serif;
 
-$font-comfortaa: 'Comfortaa-Regular';
-$font-comfortaa-light: 'Comfortaa-Light';
-$font-comfortaa-bold: 'Comfortaa-Bold';
+$font-comfortaa: 'Comfortaa-Regular', sans-serif;
+$font-comfortaa-light: 'Comfortaa-Light', sans-serif;
+$font-comfortaa-bold: 'Comfortaa-Bold', sans-serif;
 
 $font-releway-black: 'Releway-Black', sans-serif;
 $font-releway: 'Releway-Regular', sans-serif;
@@ -24,6 +24,7 @@ $font-weight-black: 900;          // Black (Heavy)
 
 //Gastro colors
 $base-text-color: #020202;
+$text-color: #000000;
 $base-btn-color: #64D370;
 $color-background-base: #F5FAFF;
 $background-circle-color: #26F03A;
