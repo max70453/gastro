@@ -8,11 +8,12 @@
           li(v-for="btnItem, index in menuBtnImage", :key="index").home-section__btnItem
             MenuButton(:image="btnItem.src", :btnText="btnItem.text")
       .home__slider
-        Slider
+        Slider(:slides="slides", :gallery="false")
     Benefits
     .programs
       .innerCntainer
-        Programs 
+        Programs
+  DishPhotos 
   .main-screen-ellipse
   .benefits-elipse
 </template>
@@ -27,6 +28,7 @@ export default {
     MenuButton: defineAsyncComponent(() => import('@/components/base/MenuBtn.vue')),
     Benefits: defineAsyncComponent(() => import('@/components/Benefits.vue')),
     Programs: defineAsyncComponent(() => import('@/components/Programs.vue')),
+    DishPhotos: defineAsyncComponent(() => import('@/components/DishPhotos.vue')),
   },
   data() {
     return {
@@ -37,6 +39,42 @@ export default {
         {src: 'bottle.png', text: 'Bottle'},
         {src: 'meat.png', text: 'Meat'},
         {src: 'table.png', text: 'Table'},
+      ],
+      slides: [
+        { 
+          text: `Detox программа – <span class="title_accent">вкусное очищение</span> организма`,
+          subText: `8 бутылочек <span class="title_accent">натуральных</span> смузи и фрешей.`,
+          btnText: 'Заказать',
+          priceText: 'Пробный день всего:',
+          price: '427 грн',
+          img: 'slide-img1.png'
+        },
+        {
+          text: `Сервис правильного питания. <span class="title_accent">Худей быстро!</span>`,
+          subText: ``,
+          btnText: 'Заказать',
+          priceText: 'Пробный день всего:',
+          price: '-30 %',
+          img: 'slide-img2.png'
+        },
+        {
+          text: `<span class="title_accent">Доверьтесь профессионалам.</span> Я Кобылинский Кирилл - основатель.`,
+          subText: `
+            <span class="title_accent"> Мастер спорта </span> Украины по тяжелой атлетике.
+            <span class="title_accent"> Высшее образование </span> института физкультуры(НуфвсУ).`,
+          btnText: 'Мой инстаграм',
+          priceText: 'Всегда открыт для клиентов',
+          price: '',
+          img: 'slide-img3.png'
+        },
+        {
+          text: `Кето питание - <span class="title_accent">вкусное и экстремальное</span> быстрое похудение`,
+          subText: `4 приема пищи.`,
+          btnText: 'Заказать',
+          priceText: 'Пробный день',
+          price: 'от 490 грн',
+          img: 'slide-img4.png'
+        },
       ]
     }
   }

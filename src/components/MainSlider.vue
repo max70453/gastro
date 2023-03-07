@@ -1,5 +1,5 @@
 <template lang="pug">
-swiper.gastro-swiper(:modules="modules" navigation="" :pagination="pagination")
+swiper.gastro-swiper(v-if="!gallery" :modules="modules" navigation="" :pagination="pagination")
   swiper-slide.gastro-swiper__slide(v-for="(slide, index) in slides", :key="index")
     .gastro-swiper__slide-wrap
       .gastro-swiper__left
@@ -13,6 +13,11 @@ swiper.gastro-swiper(:modules="modules" navigation="" :pagination="pagination")
       .gastro-swiper__right
         .gastro-swiper__pic
           img(:src="require(`@/assets/slider-images/${slide.img}`)", :alt="slide.img").gastro-swiper__img
+swiper.swiper-gallery(:slides-per-view="'auto'" :space-between="20"  :loop="true"  :centeredSlides="true" v-if="gallery")
+  swiper-slide.swiper-gallery__slide(v-for="(slide, index) in slides", :key="index")
+    .swiper-gallery__slide-wrap
+      .swiper-gallery__pic
+        img(:src="require(`@/assets/slider-images/${slide.img}`)", :alt="slide.img").swiper-gallery__img
 
 </template>
 
@@ -31,6 +36,10 @@ swiper.gastro-swiper(:modules="modules" navigation="" :pagination="pagination")
 // Import Swiper styles
 export default {
   name: 'SliderComponent',
+  props: {
+    slides: Array,
+    gallery: Boolean
+  },
   components: {
     Swiper,
     SwiperSlide,
@@ -42,43 +51,7 @@ export default {
         type: 'bullets',
         clickable: true,
       },
-      modules: [Navigation, Pagination, A11y],
-      slides: [
-        { 
-          text: `Detox программа – <span class="title_accent">вкусное очищение</span> организма`,
-          subText: `8 бутылочек <span class="title_accent">натуральных</span> смузи и фрешей.`,
-          btnText: 'Заказать',
-          priceText: 'Пробный день всего:',
-          price: '427 грн',
-          img: 'slide-img1.png'
-        },
-        {
-          text: `Сервис правильного питания. <span class="title_accent">Худей быстро!</span>`,
-          subText: ``,
-          btnText: 'Заказать',
-          priceText: 'Пробный день всего:',
-          price: '-30 %',
-          img: 'slide-img2.png'
-        },
-        {
-          text: `<span class="title_accent">Доверьтесь профессионалам.</span> Я Кобылинский Кирилл - основатель.`,
-          subText: `
-            <span class="title_accent"> Мастер спорта </span> Украины по тяжелой атлетике.
-            <span class="title_accent"> Высшее образование </span> института физкультуры(НуфвсУ).`,
-          btnText: 'Мой инстаграм',
-          priceText: 'Всегда открыт для клиентов',
-          price: '',
-          img: 'slide-img3.png'
-        },
-        {
-          text: `Кето питание - <span class="title_accent">вкусное и экстремальное</span> быстрое похудение`,
-          subText: `4 приема пищи.`,
-          btnText: 'Заказать',
-          priceText: 'Пробный день',
-          price: 'от 490 грн',
-          img: 'slide-img4.png'
-        },
-      ]
+      modules: [Navigation, Pagination, A11y]
     };
   },
 };
@@ -190,5 +163,23 @@ export default {
 
 .title_accent
   color: $base-btn-color
+
+
+//swiper gallery 
+.swiper-gallery
+  padding: 15px 0
+.swiper-gallery .swiper-gallery__slide.swiper-slide
+  max-width: 380px
+  filter: drop-shadow(0px 0px 10px rgba(86, 86, 86, 0.5))
+
+.swiper-gallery__slide-wrap
+.swiper-gallery__pic
+  width: 380px
+  height: 570px
+
+.swiper-gallery__img
+  width: 100%
+  height: auto
+  border-radius: 30px
 
 </style>
