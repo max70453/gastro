@@ -31,7 +31,7 @@
               .home-programs__oldPrice {{ price.oldPrice }}
               .home-programs__currentPrice {{ price.price }}
         .home-programs__btnWrap
-          Button(:text="baseBtnText")
+          a.base-btn(href="#", :text="baseBtnText")
       .home-programs__daysWrap(v-if="activeProgram === indexItem")
         .home-programs__days
           ul.home-programs__daysList
@@ -52,12 +52,12 @@
 </template>
     
 <script>
-import { defineAsyncComponent } from 'vue'
+// import { defineAsyncComponent } from 'vue'
 import axios from 'axios';
 export default {
   name: 'ProgramsComponent',
   components: {
-    Button: defineAsyncComponent(() => import('@/components/base/Button.vue')),
+    // Button: defineAsyncComponent(() => import('@/components/base/Button.vue')),
   },
   data() {
     return {
@@ -217,7 +217,7 @@ created(){
 .home-programs__prices
   width: 380px
   padding: 0 20px
-  margin-bottom: 30px
+  margin-bottom: 45px
   font-family: $font-family-base
   font-size: 15px
   line-height: 18px
@@ -239,8 +239,8 @@ created(){
 .home-programs__currentPrice
 
 .home-programs__btnWrap
-  width: 380px
-  text-align: center
+  width: 280px
+  margin: 0 auto
 
 .home-programs__daysWrap
 

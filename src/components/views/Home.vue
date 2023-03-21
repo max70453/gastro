@@ -10,10 +10,14 @@
       .home__slider
         Slider(:slides="slides", :gallery="false")
     Benefits
-    .programs
+    section.programs
       .innerCntainer
         Programs
-  DishPhotos 
+  DishPhotos
+  .container
+    section.forrm-questions
+      .innerCntainer
+        Checkout
   .main-screen-ellipse
   .benefits-elipse
 </template>
@@ -29,6 +33,7 @@ export default {
     Benefits: defineAsyncComponent(() => import('@/components/Benefits.vue')),
     Programs: defineAsyncComponent(() => import('@/components/Programs.vue')),
     DishPhotos: defineAsyncComponent(() => import('@/components/DishPhotos.vue')),
+    Checkout: defineAsyncComponent(() => import('@/components/Сheckout.vue')),
   },
   data() {
     return {

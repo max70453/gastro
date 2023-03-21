@@ -7,7 +7,8 @@ swiper.gastro-swiper(v-if="!gallery" :modules="modules" navigation="" :paginatio
           h1.gastro-swiper__title(v-html="slide.text") 
           .gastro-swiper__subtitle(v-html="slide.subText")
           .gastro-swiper__action
-            Button(:text="slide.btnText")
+            .gastro-swiper__btn-wrap
+              a.base-btn(href="#", :text="slide.btnText")
             .gastro-swiper__priceText {{ slide.priceText }} 
               .gastro-swiper__price {{ slide.price }}
       .gastro-swiper__right
@@ -22,7 +23,7 @@ swiper.swiper-gallery(:slides-per-view="'auto'" :space-between="20"  :loop="true
 </template>
 
 <script>
-  import { defineAsyncComponent } from 'vue'
+  // import { defineAsyncComponent } from 'vue'
   // import Swiper core and required modules
   import { Navigation, Pagination, A11y } from 'swiper';
   // Import Swiper Vue.js components
@@ -43,7 +44,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    Button: defineAsyncComponent(() => import('@/components/base/Button.vue')),
+    // Button: defineAsyncComponent(() => import('@/components/base/Button.vue')),
   },
   setup() {
     return {
@@ -91,6 +92,12 @@ export default {
 
 .gastro-swiper__action
   display: flex
+  justify-content: space-between
+  align-items: center
+
+.gastro-swiper__btn-wrap
+  width: 280px
+  margin-right: 30px
 
 .gastro-swiper__priceText
   font-family: $font-family-base

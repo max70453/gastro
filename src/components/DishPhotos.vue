@@ -8,7 +8,7 @@
 <script>
 import { defineAsyncComponent } from 'vue'
 export default {
-    // name: 'ProgramsComponent',
+    name: 'DishPhotosComponent',
     components: {
         Slider: defineAsyncComponent(() => import('@/components/MainSlider.vue')),
     },
@@ -31,6 +31,9 @@ export default {
 <style lang="sass">
 @import '../styles/variables'
 
+.dish-photos
+    margin-bottom: 150px
+    
 .dish-photos__title 
     font-family: $font-comfortaa-bold
     font-size: 30px
