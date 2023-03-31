@@ -51,15 +51,10 @@
 </template>
             
 <script>
-// import { defineAsyncComponent } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
 import { required, minLength } from '@vuelidate/validators'
     export default {
         name: 'CheckoutComponent',
-        components: {
-            // Button: defineAsyncComponent(() => import('@/components/base/Button.vue')),
-            // Slider: defineAsyncComponent(() => import('@/components/MainSlider.vue')),
-        },
         data() {
             return {
                 v$: useVuelidate(),
